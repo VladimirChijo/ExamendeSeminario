@@ -1,7 +1,9 @@
 package com.developer.ditmar.examen;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.developer.ditmar.examen.ui.DetailFragment;
 import com.developer.ditmar.examen.ui.RegisterFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void LoadComponents() {
         //load Default Fragment
         fragment = new com.developer.ditmar.examen.ui.ListFragment();
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+    public void des(View view){
+        Intent des = new Intent(this, DetailFragment.class);
+        startActivity(des);
     }
 
     @Override

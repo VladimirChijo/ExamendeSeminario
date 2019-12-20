@@ -1,6 +1,8 @@
 package com.developer.ditmar.examen.ui;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -30,18 +33,29 @@ import cz.msebera.android.httpclient.Header;
  * A simple {@link Fragment} subclass.
  */
 public class ListFragment extends Fragment {
-
+    private Context context;
     private View root;
     public ListFragment() {
         // Required empty public constructor
+        this.context = context;
     }
 
+    public ListFragment(Context context) {
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         root = inflater.inflate(R.layout.fragment_list, container, false);
+      //  public void onClick(View root) {
+
+           // Intent root = new Intent( getActivity() ,DetailFragment.class);
+        //    startActivity(root);
+       // }
+    //});
         return root;
     }
 
@@ -58,8 +72,8 @@ public class ListFragment extends Fragment {
                         StructList item = new StructList();
                         item.setId(obj.getString("_id"));
                         item.setDescription(obj.getString("description"));
-                        item.setDirections(obj.getString("directions"));
-                        item.setDisclaimer(obj.getString("disclaimer"));
+                        item.setDirections(obj.getString("disclaimer"));
+                        item.setDisclaimer(obj.getString("directions"));
                         item.setLat(obj.getDouble("lat"));
                         item.setListPrice(obj.getDouble("listPrice"));
                         item.setLng(obj.getDouble("listPrice"));
@@ -79,5 +93,6 @@ public class ListFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
     }
+
 
 }
