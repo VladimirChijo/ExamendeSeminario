@@ -59,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
         Intent des = new Intent(this, DetailFragment.class);
         startActivity(des);
     }
-
+    public void map(View view){
+        Intent map = new Intent(this, mapa.class);
+        startActivity(map);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
